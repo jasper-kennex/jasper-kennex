@@ -1,0 +1,20 @@
+<h1 id="greeting">Xin chào</h1>
+<button onclick="setLanguage('en')">English</button>
+<button onclick="setLanguage('vi')">Tiếng Việt</button>
+
+<script>
+  const translations = {
+    vi: { greeting: "Xin chào" },
+    en: { greeting: "Hello" }
+  };
+
+  function setLanguage(lang) {
+    document.getElementById('greeting').innerText = translations[lang].greeting;
+    localStorage.setItem('lang', lang);
+  }
+
+  window.onload = () => {
+    const lang = localStorage.getItem('lang') || 'vi';
+    setLanguage(lang);
+  }
+</script>
